@@ -62,15 +62,15 @@ def display_disciplines(disciplines, title=""):
     """Отображение списка дисциплин"""
     if title:
         print(f"\n{title}")
-    print("=" * 90)
-    print(f"{'ID':<4} {'Название':<25} {'Кафедра':<20} {'Сем':<4} {'Длит':<5} {'Часы':<6} {'Отчёт':<8}")
-    print("-" * 90)
+    print("=" * 130) 
+    print(f"{'ID':<4} {'Название':<35} {'Кафедра':<30} {'Сем':<4} {'Длит':<5} {'Часы':<6} {'Отчёт':<10}")
+    print("-" * 130)
     
     for disc in disciplines:
-        print(f"{disc['id']:<4} {disc['name']:<25} {disc['department']:<20} "
+        print(f"{disc['id']:<4} {disc['name']:<35} {disc['department']:<30} "
               f"{disc['start_semester']:<4} {disc['duration']:<5} "
-              f"{disc['total_hours']:<6} {disc['assessment']:<8}")
-    print("=" * 90)
+              f"{disc['total_hours']:<6} {disc['assessment']:<10}")
+    print("=" * 130)
     print(f"Всего дисциплин: {len(disciplines)}")
 
 def add_discipline(disciplines):

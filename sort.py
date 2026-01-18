@@ -9,49 +9,51 @@ def binary_insertion_sort(data, sort_type):
         current = data[i]
         left = 0
         right = len(result)
+        
         while left < right:
             mid = (left + right) // 2
             cmp = 0
-            if sort_type == 1:  # Отчёт 1: семестр по возрастанию + кафедра по возрастанию + часыпо убыванию
-                # Сравнение по семестру
+            
+            if sort_type == 1:  # Отчёт 1: семестр + кафедра + часы
+                #Семестр (по возрастанию)
                 if current['start_semester'] < result[mid]['start_semester']:
                     cmp = -1
                 elif current['start_semester'] > result[mid]['start_semester']:
                     cmp = 1
                 else:
-                    # Сравнение по кафедре
+                    #Кафедра (по возрастанию)
                     if current['department'] < result[mid]['department']:
                         cmp = -1
                     elif current['department'] > result[mid]['department']:
                         cmp = 1
                     else:
-                        # Сравнение по часам
+                        #Часы (по убыванию)
                         if current['total_hours'] > result[mid]['total_hours']:
-                            cmp = -1
+                            cmp = -1 
                         elif current['total_hours'] < result[mid]['total_hours']:
-                            cmp = 1
+                            cmp = 1 
             
-            elif sort_type == 2:  # Отчёт 2: длительность по возрастанию + часы по убыванию
-                # Сравнение по длительности
+            elif sort_type == 2:  # Отчёт 2: длительность + часы
+                #Длительность (по возрастанию)
                 if current['duration'] < result[mid]['duration']:
                     cmp = -1
                 elif current['duration'] > result[mid]['duration']:
                     cmp = 1
                 else:
-                    # Сравнение по часам
+                    #Часы (по убыванию)
                     if current['total_hours'] > result[mid]['total_hours']:
                         cmp = -1
                     elif current['total_hours'] < result[mid]['total_hours']:
                         cmp = 1
             
-            else:  # Отчёт 3: кафедра по возрастанию + часы по убыванию
-                # Сравнение по кафедре
+            else:  # Отчёт 3: кафедра + часы
+                #Кафедра (по возрастанию)
                 if current['department'] < result[mid]['department']:
                     cmp = -1
                 elif current['department'] > result[mid]['department']:
                     cmp = 1
                 else:
-                    # Сравнение по часам
+                    #Часы (по убыванию)
                     if current['total_hours'] > result[mid]['total_hours']:
                         cmp = -1
                     elif current['total_hours'] < result[mid]['total_hours']:
@@ -59,11 +61,8 @@ def binary_insertion_sort(data, sort_type):
             
             if cmp < 0:
                 right = mid
-            elif cmp > 0:
-                left = mid + 1
             else:
                 left = mid + 1
-                break
         
         # Вставляем элемент на найденную позицию
         result.insert(left, current)
